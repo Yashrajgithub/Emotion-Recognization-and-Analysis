@@ -81,4 +81,14 @@ This project is a web-based **Emotion Detection Application** that leverages **N
 * **Feedback**:  
   - Submit feedback or suggestions via the provided form.
 
+---
+
+## 📸 Webapp
+
+1. **Home Page**:  
+   ![Home Page](https://github.com/Yashrajgithub/Emotion-Recognization-and-Analysis/blob/main/Home%20Page.png)
+
+2. **Result Page**:  
+   ![Result Page](https://github.com/Yashrajgithub/Emotion-Recognization-and-Analysis/blob/main/Result.png)
+
 
