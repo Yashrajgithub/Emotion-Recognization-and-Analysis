@@ -7,9 +7,17 @@ import joblib
 # from fer import FER  # Comment out FER import
 import speech_recognition as sr
 import requests
+import os
 
-# Load the pre-trained emotion prediction model
-pipe_lr = joblib.load(open("model/text_emotion.pkl", "rb"))
+# Define the model path
+model_path = os.path.join(os.getcwd(), "model", "text_emotion.pkl")
+
+# Check if the model file exists
+if os.path.exists(model_path):
+    with open(model_path, "rb") as file:
+        pipe_lr = joblib.load(file)
+else:
+    st.error("Model file not found!")
 
 # Dictionary for emotions and corresponding emojis
 emotions_emoji_dict = {
