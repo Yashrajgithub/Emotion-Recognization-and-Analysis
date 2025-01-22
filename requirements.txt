@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+altair
+joblib
+opencv-python-headless
+fer
+SpeechRecognition
+sendgrid
+python-dotenv
