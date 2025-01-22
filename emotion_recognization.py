@@ -165,7 +165,7 @@ def home():
                 fig = alt.Chart(proba_df_clean).mark_bar().encode(
                     x='Emotions',
                     y='Probability',
-                    color=alt.Color('Probability', scale=alt.Scale(scheme='viridis')),  # Apply color gradient
+                    color=alt.Color('Probability', scale=alt.Scale(scheme='cool')),  # Apply color gradient
                     tooltip=['Emotions', 'Probability']
                 ).properties(width=400, height=300)
 
