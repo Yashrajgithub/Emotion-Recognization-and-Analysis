@@ -177,6 +177,10 @@ def home():
 
     elif analysis_option == "Webcam Emotion Detection":
         st.subheader("**Real-Time Webcam Emotion Detection**")
+        st.warning(
+            "The webcam feature is currently unavailable due to system compatibility issues or errors. "
+            "You can uncomment the webcam section in the code and run it on your local machine."
+        )
         # Commented out the call to detect_emotions
         # detect_emotions()
 
