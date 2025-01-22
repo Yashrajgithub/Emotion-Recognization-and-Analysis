@@ -3,8 +3,7 @@ pandas
 numpy
 altair
 joblib
-opencv-python-headless
-fer
+opencv-python-headless==4.11.0.86fer
 SpeechRecognition
 sendgrid
 python-dotenv
