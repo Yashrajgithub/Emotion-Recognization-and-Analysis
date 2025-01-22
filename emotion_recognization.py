@@ -209,7 +209,7 @@ def about():
 # Feedback page
 def feedback():
     st.title("Feedback / Suggestions")
-    st.markdown("We value your feedback! Please provide your suggestions or feedback below:")
+    st.markdown(" 🤝 We value your feedback! Please provide your suggestions or feedback below:")
 
     with st.form(key='feedback_form', clear_on_submit=True):
         name = st.text_input("Your Name")
