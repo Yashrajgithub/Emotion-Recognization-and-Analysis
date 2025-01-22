@@ -118,7 +118,7 @@ def submit_feedback(name, email, feedback):
 
 # Sidebar menu
 def sidebar():
-    st.sidebar.title("Menu")
+    st.sidebar.title(" 😀 Menu")
     page = st.sidebar.radio("Select an Option", ("Home", "About", "Feedback/Suggestions"))
     return page
 
@@ -186,7 +186,7 @@ def home():
 
 # About page
 def about():
-    st.title("About This Project")
+    st.title(" ℹ️ About This Project")
     st.markdown("""
         This project combines **Natural Language Processing (NLP)** and **Facial Emotion Recognition** to detect and analyze emotions from text and video input.
 
