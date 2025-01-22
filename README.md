@@ -1,4 +1,10 @@
-# 😊 Emotion Detection Web App
+<div align="center">
+    <h1> 😊 Emotion Detection Web App </h1>
+</div>
+
+<div align="center">
+    <h3>Link : https://emotion-recognization-and-analysis-mp.streamlit.app/ </h3>
+</div>
 
 This project is a web-based **Emotion Detection Application** that leverages **Natural Language Processing (NLP)** and **Facial Emotion Recognition** to analyze and predict emotions from text or real-time video input.
 
@@ -44,7 +50,7 @@ This project is a web-based **Emotion Detection Application** that leverages **N
 - `app.py`: Main application code.
 - `requirements.txt`: Python dependencies for the project.
 - `README.md`: Project documentation.
-
+```
 ---
 
 ## 🚀 How to Run
@@ -63,18 +69,16 @@ This project is a web-based **Emotion Detection Application** that leverages **N
 
 ---
 
-## 📖 ***Usage***
+## 📖 _Usage_
 
-### **_Home:_**
-* Choose between **"Text Recognition"** or **"Webcam Emotion Detection."**
-* Enter text, or use the **speech-to-text** functionality to predict emotions.
+* **Home**:  
+  - Choose between _"Text Recognition"_ or _"Webcam Emotion Detection."_
+  - Enter text, or use the speech-to-text functionality to predict emotions.
 
----
+* **About**:  
+  - Learn about the project's purpose, technology stack, and functionality.
 
-### **_About:_**
-* Learn about the project's purpose, technology stack, and functionality.
+* **Feedback**:  
+  - Submit feedback or suggestions via the provided form.
 
----
 
-### **_Feedback:_**
-* Submit feedback or suggestions via the provided form.
