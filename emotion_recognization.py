@@ -10,7 +10,7 @@ import requests
 import os
 
 # Define the model path
-model_path = os.path.join(os.getcwd(), "model", "text_emotion.pkl")
+model_path = os.path.join(os.getcwd(), "model", "emotion_classifier_pipe_lr.pkl")
 
 # Check if the model file exists
 if os.path.exists(model_path):
