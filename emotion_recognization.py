@@ -203,7 +203,7 @@ def about():
 
         This project offers a unique approach to analyzing emotions, useful in fields like customer service and mental health.
 
-        **Developed by**: Yashraj Kalshetti 🧑‍🎓
+        **Developed by**: **Yashraj Kalshetti 🧑‍🎓**
     """)
 
 # Feedback page
