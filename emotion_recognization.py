@@ -162,7 +162,7 @@ def home():
                 proba_df_clean = proba_df.T.reset_index()
                 proba_df_clean.columns = ["Emotions", "Probability"]
 
-                fig = alt.Chart(proba_df_clean).mark_bar(color='#3498db').encode(
+                fig = alt.Chart(proba_df_clean).mark_bar(color='blues').encode(
                     x='Emotions', y='Probability', tooltip=['Emotions', 'Probability']
                 ).properties(width=400, height=300)
 
