@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import joblib
-import cv2
-from fer import FER
+# import cv2  # Comment out OpenCV import
+# from fer import FER  # Comment out FER import
 import speech_recognition as sr
 import requests
 
@@ -24,6 +24,7 @@ emotions_emoji_dict = {
     "shame": "😳",
     "surprise": "😮"
 }
+
 # Apply custom font styling (Times New Roman)
 st.markdown(
     """
@@ -69,46 +70,31 @@ def speech_to_text():
 def is_mobile_device(face):
     height, width = face.shape[:2]
     aspect_ratio = width / height
-    # Simple heuristic: mobile devices typically have a width-to-height ratio greater than 1.5
     return aspect_ratio > 1.5
 
-# Real-time emotion detection using webcam
-def detect_emotions():
-    # Initialize FER
-    detector = FER()
-    cap = cv2.VideoCapture(0)
-
-    # Placeholder for the video feed
-    video_placeholder = st.empty()
-
-    # Start the video capture
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
-        
-        # Analyze frame for emotions
-        emotion, score = detector.top_emotion(frame)
-
-        # Handle None values for emotion and score
-        if emotion is not None and score is not None:
-            # Check if the detected face is a mobile device
-            if is_mobile_device(frame):
-                cv2.putText(frame, "Mobile Device Detected", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            else:
-                # Draw emotion on frame
-                cv2.putText(frame, f"{emotion} ({score:.2f})", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-        else:
-            cv2.putText(frame, "No emotion detected", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-
-        # Convert frame to RGB format
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-        # Use Streamlit to display the frame, adjusting the width
-        video_placeholder.image(frame, channels="RGB", use_container_width=True, caption="Real-time Emotion Detection")
-
-    cap.release()
-    video_placeholder.empty()
+# Commented out real-time emotion detection using webcam
+# def detect_emotions():
+#     # Initialize FER
+#     detector = FER()
+#     cap = cv2.VideoCapture(0)
+#     # Placeholder for the video feed
+#     video_placeholder = st.empty()
+#     while True:
+#         ret, frame = cap.read()
+#         if not ret:
+#             break
+#         emotion, score = detector.top_emotion(frame)
+#         if emotion is not None and score is not None:
+#             if is_mobile_device(frame):
+#                 cv2.putText(frame, "Mobile Device Detected", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+#             else:
+#                 cv2.putText(frame, f"{emotion} ({score:.2f})", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+#         else:
+#             cv2.putText(frame, "No emotion detected", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+#         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#         video_placeholder.image(frame, channels="RGB", use_container_width=True, caption="Real-time Emotion Detection")
+#     cap.release()
+#     video_placeholder.empty()
 
 # Feedback form submission function
 def submit_feedback(name, email, feedback):
@@ -139,34 +125,24 @@ def home():
 
     if analysis_option == "Text Recognition":
         st.subheader("**Enter Text to Analyze Emotion**")
-        # Create a form for user input
         with st.form(key='text_form', clear_on_submit=True):
             raw_text = st.text_area("**Enter Your Text Here**", height=150)
-            
-            # Analyze Button
-            submit_text = st.form_submit_button(label='Analyze Emotion', 
-                                                 help='Click to analyze the emotions in the text.')
-
-            # Checkbox for speech input
+            submit_text = st.form_submit_button(label='Analyze Emotion')
             speak_checkbox = st.checkbox("Use Speech Input")
-
             if speak_checkbox:
                 spoken_text = speech_to_text()
                 if spoken_text:
                     raw_text = spoken_text
 
         if submit_text:
-            # Prediction results
             prediction = predict_emotions(raw_text)
             probability = get_prediction_proba(raw_text)
 
-            # Display results in a stylish layout
             col1, col2 = st.columns(2)
 
             with col1:
                 st.markdown("### **Original Text:**")
                 st.success(raw_text)
-
                 st.markdown("### **Predicted Emotion:**")
                 emoji_icon = emotions_emoji_dict[prediction]
                 st.subheader(f"{prediction.capitalize()} {emoji_icon}")
@@ -178,26 +154,20 @@ def home():
                 proba_df_clean = proba_df.T.reset_index()
                 proba_df_clean.columns = ["Emotions", "Probability"]
 
-                # Create a bar chart using Altair
                 fig = alt.Chart(proba_df_clean).mark_bar(color='#3498db').encode(
-                x='Emotions',
-                y='Probability',
-                tooltip=['Emotions', 'Probability']
-               ).properties(width=400, height=300)
+                    x='Emotions', y='Probability', tooltip=['Emotions', 'Probability']
+                ).properties(width=400, height=300)
 
                 st.altair_chart(fig, use_container_width=True)
 
-
-            # Display a motivational message
             st.markdown("---")
             st.markdown("### **Keep Exploring Your Emotions!**")
             st.markdown("✨ **Embrace your feelings!** ✨")
 
     elif analysis_option == "Webcam Emotion Detection":
         st.subheader("**Real-Time Webcam Emotion Detection**")
-        # Start webcam emotion detection
-        detect_emotions()
-
+        # Commented out the call to detect_emotions
+        # detect_emotions()
 
 # About page
 def about():
@@ -230,7 +200,6 @@ def feedback():
         name = st.text_input("Your Name")
         email = st.text_input("Your Email")
         feedback_text = st.text_area("Your Feedback/Suggestions", height=150)
-        
         submit_feedback_btn = st.form_submit_button(label='Submit Feedback')
         
         if submit_feedback_btn:
