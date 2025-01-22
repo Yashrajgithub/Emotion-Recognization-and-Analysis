@@ -1,11 +1,15 @@
 <div align="center">
     <h1> 😊 Emotion Detection Web App </h1>
 </div>
+
 ---
+
 <div align="center">
     <h3>Link : https://emotion-recognization-and-analysis-mp.streamlit.app/ </h3>
 </div>
+
 ---
+
 This project is a web-based **Emotion Detection Application** that leverages **Natural Language Processing (NLP)** and **Facial Emotion Recognition** to analyze and predict emotions from text or real-time video input.
 
 ---
